@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent implements OnInit {
   // title = 'Welcome to the First Variables';
+  name = 'aymenmosrati----------->';
+  id = '45rtgre5Xcjn868sd42s42d--------------------->';
   constructor() {}
   ngOnInit(): void {}
 }

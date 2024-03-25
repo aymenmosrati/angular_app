@@ -1,8 +1,13 @@
 <!-- <app-home></app-home> -->
 <!-- <p>{{ title }}</p> -->
 <!-- <app-about></app-about> -->
-<p>welcom to first angular app</p>
+<!-- <p>welcom to first angular app</p> -->
 <a routerLink="/">Home</a>
 <br />
 <a routerLink="/about">About</a>
+<br />
+
+<a [routerLink]="['/profile', name, id]">Profile</a>
 <router-outlet></router-outlet>
+
+<div>this is footer</div>
