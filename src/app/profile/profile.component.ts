@@ -11,10 +11,18 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfileComponent {
   getName = '';
   getId = '';
+  qname = '';
+  qage = '';
+  qcountry = '';
   constructor(private route: ActivatedRoute) {
     this.route.params.subscribe((params) => {
       this.getName = params['name'];
       this.getId = params['id'];
+    });
+    this.route.queryParams.subscribe((params) => {
+      this.qname = params['qname'];
+      this.qage = params['qage'];
+      this.qcountry = params['qcountry'];
     });
   }
 }
