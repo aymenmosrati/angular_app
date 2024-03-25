@@ -28,6 +28,7 @@
     <div *ngFor="let item of dataArray; index as i">
     <p>{{ i + 1 }} {{ item }}</p>
   </div> -->
+<!--
 @for (item of dataArray; track item) {
 <p>{{ item }}</p>
 }
@@ -41,5 +42,24 @@
 <div>Third</div>
 } }
 
-
 <div class="'title'">Aymen mosrati</div>
+
+<p [ngClass]="titleCladd">aymen</p>
+<p
+  [ngStyle]="{ color: style1, 'font-size': style2, 'text-decoration': style3 }"
+>
+  Welcom to My Frist Angular App
+</p> -->
+
+<!-- Pipe -->
+
+<!-- <p>{{ FirstName | uppercase }}</p>
+<p>{{ LastName | uppercase }}</p>
+<p>{{ country | lowercase }}</p>
+<p>{{ profile | json }}</p>
+
+<p>{{ num | currency : "TND" : "code" }}</p> -->
+
+<p>{{ profile.firstName | titlecase }}</p>
+<p>{{ profile.lastName | titlecase }}</p>
+<p>{{ date | date : "medium" }}</p>

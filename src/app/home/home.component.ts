@@ -1,27 +1,37 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+  style1 = 'red';
+  style2 = '30px';
+  style3 = 'underline';
+
+  num = 20;
+  date = '06/18/2021';
   profile = {
     firstName: 'Aymen',
     lastName: 'Mosrati',
     website: 'www.aymen.com',
-    country: 'tunisia',
+    country: 'TUNISIA',
     age: 23,
   };
+  FirstName = 'Aymen';
+  LastName = 'Mosrati';
+  country = 'TUNISIA';
+  titleCladd = 'title';
 
   linkImage =
     'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Oranges_-_whole-halved-segment.jpg/1200px-Oranges_-_whole-halved-segment.jpg';
   titleStyle = 'block';
   title2Style = 'blue';
   link = 'http://aymenmosrati.vercel.dev';
-  num = 1;
   verify = true;
   x = 1;
   y = 2;
