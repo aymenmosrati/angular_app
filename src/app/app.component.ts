@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  title = 'Welcome to the First Variables';
+  // title = 'Welcome to the First Variables';
   constructor() {}
   ngOnInit(): void {}
 }
