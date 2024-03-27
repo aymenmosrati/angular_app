@@ -58,8 +58,14 @@
 <p>{{ country | lowercase }}</p>
 <p>{{ profile | json }}</p>
 
-<p>{{ num | currency : "TND" : "code" }}</p> -->
+<p>{{ num | currency : "TND" : "code" }}</p>
 
 <p>{{ profile.firstName | titlecase }}</p>
 <p>{{ profile.lastName | titlecase }}</p>
 <p>{{ date | date : "medium" }}</p>
+ -->
+
+<p>home works!</p>
+<input type="text" [(ngModel)]="profile.firstName" />
+<button class="btn btn-primary" (click)="goToView()">View Profile</button>
+<button class="btn btn-success" (click)="goToDetails()">Details Profile</button>

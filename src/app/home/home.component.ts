@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ShareServicesService } from '../services/share-services.service';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -16,7 +18,7 @@ export class HomeComponent {
   num = 20;
   date = '06/18/2021';
   profile = {
-    firstName: 'Aymen',
+    firstName: '',
     lastName: 'Mosrati',
     website: 'www.aymen.com',
     country: 'TUNISIA',
@@ -36,7 +38,12 @@ export class HomeComponent {
   x = 1;
   y = 2;
   dataArray = ['tunisie', 'morroco', 'libbia', 'algerie'];
-  constructor() {}
+
+  constructor(private route: Router, private share: ShareServicesService) {
+    // this.share.getData();
+    console.log( this.share.data);
+    console.log( this.share.url);
+  }
 
   ngOnInit(): void {}
 
@@ -52,5 +59,16 @@ export class HomeComponent {
   }
   hidden() {
     this.titleStyle = 'color:green;font-size:40px';
+  }
+
+  goToView() {
+    this.route.navigate([
+      'profile/' + this.profile.firstName + '/' + this.profile.age + '/view',
+    ]);
+  }
+  goToDetails() {
+    this.route.navigate([
+      'profile/' + this.profile.firstName + '/' + this.profile.age + '/details',
+    ]);
   }
 }
