@@ -5,6 +5,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ViewComponent } from './view/view.component';
 import { DetailsComponent } from './details/details.component';
+import { guardAdminGuard } from './guards/guard-admin.guard';
 
 export const routes: Routes = [
   {
@@ -14,6 +15,7 @@ export const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent,
+    canActivate: [guardAdminGuard],
   },
   {
     path: 'profile/:name/:id',

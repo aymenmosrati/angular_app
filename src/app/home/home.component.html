@@ -1,71 +1,17 @@
-<!--<p [style]="titleStyle">this is home page</p>
-<button (click)="show()">change to red</button>
-<button (click)="hidden()">change to green</button>
- <p [style.color]="title2Style">Welcom</p>
-<p>My name is {{ profile.FirstName }} {{ profile.LastName }}</p>
-<p>my website is {{ profile.website }}</p>
-<p>I am from {{ profile.country }}</p>
-<p>{{ profile.age }}</p>
-<img [src]="linkImage" width="150px" height="150px" />
-<a [href]="link">click this</a>
-
-<h1>{{ number }}</h1>
-<button (click)="inc()">increment</button>
-<button (click)="dec()">decrement</button>
-
-<h1 >{{ number }}</h1>
-<input type="text" [(ngModel)]="number" />
-<input type="text" [(ngModel)]="profile.firstName" />
-<input type="text" [(ngModel)]="profile.lastName" />
--->
-
-<!-- <p *ngIf="verify">directives</p>
-@if(y===x){
-<p>directive</p>
-} -->
-<!-- 
-    // Before 
-    <div *ngFor="let item of dataArray; index as i">
-    <p>{{ i + 1 }} {{ item }}</p>
-  </div> -->
-<!--
-@for (item of dataArray; track item) {
-<p>{{ item }}</p>
-}
-<input type="number" [(ngModel)]="num" />
-
-@switch (num) { @case (1) {
-<div>First</div>
-} @case (2) {
-<div>Second</div>
-} @case (3) {
-<div>Third</div>
-} }
-
-<div class="'title'">Aymen mosrati</div>
-
-<p [ngClass]="titleCladd">aymen</p>
-<p
-  [ngStyle]="{ color: style1, 'font-size': style2, 'text-decoration': style3 }"
->
-  Welcom to My Frist Angular App
-</p> -->
-
-<!-- Pipe -->
-
-<!-- <p>{{ FirstName | uppercase }}</p>
-<p>{{ LastName | uppercase }}</p>
-<p>{{ country | lowercase }}</p>
-<p>{{ profile | json }}</p>
-
-<p>{{ num | currency : "TND" : "code" }}</p>
-
-<p>{{ profile.firstName | titlecase }}</p>
-<p>{{ profile.lastName | titlecase }}</p>
-<p>{{ date | date : "medium" }}</p>
- -->
-
-<p>home works!</p>
-<input type="text" [(ngModel)]="profile.firstName" />
-<button class="btn btn-primary" (click)="goToView()">View Profile</button>
-<button class="btn btn-success" (click)="goToDetails()">Details Profile</button>
+<!-- Template Driven Forms -->
+<form #f="ngForm" (ngSubmit)="add(f)">
+  <input type="text" name="firstName" placeholder="firstName" ngModel />
+  <br />
+  <input type="text" name="lastName" placeholder="lastName" ngModel />
+  <br />
+  <input type="number" name="age" placeholder="age" ngModel />
+  <br />
+  <input type="radio" name="type" value="man" ngModel />
+  <br />
+  <textarea name="msg" id="" cols="30" rows="10" ngModel></textarea>
+  <br />
+  <input type="checkbox" name="quiz" ngModel />
+  <input type="checkbox" name="quizz" ngModel />
+  <input type="password" name="psd" ngModel />
+  <button type="submit">Add</button>
+</form>

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ShareServicesService } from '../services/share-services.service';
 @Component({
@@ -41,8 +41,8 @@ export class HomeComponent {
 
   constructor(private route: Router, private share: ShareServicesService) {
     // this.share.getData();
-    console.log( this.share.data);
-    console.log( this.share.url);
+    console.log(this.share.data);
+    console.log(this.share.url);
   }
 
   ngOnInit(): void {}
@@ -70,5 +70,10 @@ export class HomeComponent {
     this.route.navigate([
       'profile/' + this.profile.firstName + '/' + this.profile.age + '/details',
     ]);
+  }
+
+  add(f: NgForm) {
+    let data = f.value;
+    console.log(data);
   }
 }

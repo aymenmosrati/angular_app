@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-
 export class ShareServicesService {
   data = {
     name: 'aymen',
@@ -11,6 +10,7 @@ export class ShareServicesService {
     country: 'tunisia',
   };
   url = 'http://aymenmosrati.vercel.dev';
+  isAdmin = true;
   constructor() {}
 
   getData() {
