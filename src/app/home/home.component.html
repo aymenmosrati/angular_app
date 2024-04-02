@@ -1,17 +1,56 @@
 <!-- Template Driven Forms -->
 <form #f="ngForm" (ngSubmit)="add(f)">
-  <input type="text" name="firstName" placeholder="firstName" ngModel />
+  <input
+    type="text"
+    name="firstName"
+    placeholder="firstName"
+    #firstname="ngModel"
+    ngModel
+    required
+    minlength="5"
+    maxlength="10"
+  />
+  @if(firstname.errors?.['required'] && firstname.touched) {
+  <div class="alert alert-danger" role="alert">This input is required</div>
+  } @if(firstname.errors?.['minlength'] && firstname.touched) {
+  <div class="alert alert-danger" role="alert">minlength error</div>
+  } @if(firstname.errors?.['maxlength'] && firstname.touched) {
+  <div class="alert alert-danger" role="alert">maxlength error</div>
+  }
   <br />
-  <input type="text" name="lastName" placeholder="lastName" ngModel />
+  <input
+    type="text"
+    name="lastName"
+    placeholder="lastName"
+    #lastname="ngModel"
+    ngModel
+    required
+    minlength="10"
+  />
+  @if(lastname.errors?.['required'] && lastname.touched) {
+  <div class="alert alert-danger" role="alert">This input is required</div>
+  } @if(lastname.errors?.['minlength'] && lastname.touched) {
+  <div class="alert alert-danger" role="alert">minlength error</div>
+  }
   <br />
-  <input type="number" name="age" placeholder="age" ngModel />
+  <input
+    type="number"
+    name="age"
+    placeholder="age"
+    #age="ngModel"
+    ngModel
+    required
+  />
+  @if(age.errors?.['required'] && age.touched) {
+  <div class="alert alert-danger" role="alert">This input is required</div>
+  }
   <br />
-  <input type="radio" name="type" value="man" ngModel />
+  <!-- <input type="radio" name="type" value="man" ngModel />
   <br />
   <textarea name="msg" id="" cols="30" rows="10" ngModel></textarea>
   <br />
   <input type="checkbox" name="quiz" ngModel />
   <input type="checkbox" name="quizz" ngModel />
-  <input type="password" name="psd" ngModel />
-  <button type="submit">Add</button>
+  <input type="password" name="psd" ngModel />-->
+  <button type="submit" [disabled]="f.invalid">Add</button>
 </form>

@@ -73,6 +73,7 @@ export class HomeComponent {
   }
 
   add(f: NgForm) {
+    console.log(f);
     let data = f.value;
     console.log(data);
   }
