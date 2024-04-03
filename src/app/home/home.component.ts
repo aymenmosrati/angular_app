@@ -1,12 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  NgForm,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ShareServicesService } from '../services/share-services.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -39,10 +45,16 @@ export class HomeComponent {
   y = 2;
   dataArray = ['tunisie', 'morroco', 'libbia', 'algerie'];
 
+  //Reactive Forms
+  myForm = new FormGroup({
+    fname: new FormControl(),
+    age: new FormControl(),
+  });
+
   constructor(private route: Router, private share: ShareServicesService) {
     // this.share.getData();
-    console.log(this.share.data);
-    console.log(this.share.url);
+    // console.log(this.share.data);
+    // console.log(this.share.url);
   }
 
   ngOnInit(): void {}
@@ -76,5 +88,10 @@ export class HomeComponent {
     console.log(f);
     let data = f.value;
     console.log(data);
+  }
+
+  print() {
+    console.log(this.myForm);
+    console.log('value', this.myForm.value);
   }
 }

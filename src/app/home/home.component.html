@@ -1,5 +1,5 @@
 <!-- Template Driven Forms -->
-<form #f="ngForm" (ngSubmit)="add(f)">
+<!-- <form #f="ngForm" (ngSubmit)="add(f)">
   <input
     type="text"
     name="firstName"
@@ -45,12 +45,18 @@
   <div class="alert alert-danger" role="alert">This input is required</div>
   }
   <br />
-  <!-- <input type="radio" name="type" value="man" ngModel />
+  <input type="radio" name="type" value="man" ngModel />
   <br />
   <textarea name="msg" id="" cols="30" rows="10" ngModel></textarea>
   <br />
   <input type="checkbox" name="quiz" ngModel />
   <input type="checkbox" name="quizz" ngModel />
-  <input type="password" name="psd" ngModel />-->
+  <input type="password" name="psd" ngModel />
   <button type="submit" [disabled]="f.invalid">Add</button>
+</form> -->
+
+<form [formGroup]="myForm" (ngSubmit)="print()">
+  <input type="text" formControlName="fname" placeholder="fname" />
+  <input type="text" placeholder="age" formControlName="age" />
+  <button type="submit">Print</button>
 </form>
