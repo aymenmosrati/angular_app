@@ -56,7 +56,26 @@
 </form> -->
 
 <form [formGroup]="myForm" (ngSubmit)="print()">
-  <input type="text" formControlName="fname" placeholder="fname" />
-  <input type="text" placeholder="age" formControlName="age" />
-  <button type="submit">Print</button>
+  <input type="text" formControlName="fname" placeholder="fname" /> <br />
+  @if( myForm.get('fname').touched && myForm.get('fname').hasError('required'))
+  {
+  <div class="alert alert-danger" role="alert">
+    This input fname is required
+  </div>
+  }
+  <input type="text" placeholder="age" formControlName="age" /><br />
+  @if( myForm.get('age').touched && myForm.get('age').hasError('required')) {
+  <div class="alert alert-danger" role="alert">This input age is required</div>
+  }
+
+  <input type="text" placeholder="email" formControlName="email" /><br />
+  @if( myForm.get('email').touched && myForm.get('email').hasError('required'))
+  {
+  <div class="alert alert-danger" role="alert">
+    This input email is required
+  </div>
+  } @if(myForm.get('email').hasError('email')) {
+  <div class="alert alert-danger" role="alert">This is not email</div>
+  }
+  <button type="submit" [disabled]="myForm.invalid">Print</button>
 </form>

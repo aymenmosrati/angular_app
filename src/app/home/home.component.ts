@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {
+  FormBuilder,
   FormControl,
   FormGroup,
   FormsModule,
   NgForm,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ShareServicesService } from '../services/share-services.service';
@@ -46,12 +48,21 @@ export class HomeComponent {
   dataArray = ['tunisie', 'morroco', 'libbia', 'algerie'];
 
   //Reactive Forms
-  myForm = new FormGroup({
-    fname: new FormControl(),
-    age: new FormControl(),
-  });
-
-  constructor(private route: Router, private share: ShareServicesService) {
+  // myForm = new FormGroup({
+  //   fname: new FormControl('defvdvv'),
+  //   age: new FormControl(),
+  // });
+  myForm: any;
+  constructor(
+    private route: Router,
+    private share: ShareServicesService,
+    private formbuilder: FormBuilder
+  ) {
+    this.myForm = this.formbuilder.group({
+      fname: ['', Validators.required],
+      age: ['', Validators.required],
+      email: ['', [Validators.email, Validators.required]],
+    });
     // this.share.getData();
     // console.log(this.share.data);
     // console.log(this.share.url);
