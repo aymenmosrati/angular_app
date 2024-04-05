@@ -59,7 +59,7 @@ export class HomeComponent {
     private formbuilder: FormBuilder
   ) {
     this.myForm = this.formbuilder.group({
-      fname: ['', Validators.required],
+      fname: ['', [Validators.required, Validators.minLength(5)]],
       age: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
     });
@@ -68,7 +68,9 @@ export class HomeComponent {
     // console.log(this.share.url);
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    // this.myForm.patchValue(this.fname:"4444")
+  }
 
   inc() {
     this.num++;
@@ -104,5 +106,15 @@ export class HomeComponent {
   print() {
     console.log(this.myForm);
     console.log('value', this.myForm.value);
+  }
+
+  get fname() {
+    return this.myForm.get('fname');
+  }
+  get age() {
+    return this.myForm.get('age');
+  }
+  get email() {
+    return this.myForm.get('email');
   }
 }

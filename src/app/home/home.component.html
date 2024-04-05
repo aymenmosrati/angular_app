@@ -56,25 +56,32 @@
 </form> -->
 
 <form [formGroup]="myForm" (ngSubmit)="print()">
-  <input type="text" formControlName="fname" placeholder="fname" /> <br />
-  @if( myForm.get('fname').touched && myForm.get('fname').hasError('required'))
-  {
+  <input type="text" placeholder="fname" formControlName="fname" /> <br />
+  <!-- @if(myForm.get('fname').touched && myForm.get('fname').hasError('required') &&
+  myForm.get('fname').hasError('minlength')) {
   <div class="alert alert-danger" role="alert">
     This input fname is required
   </div>
+  } -->
+  @if(fname.touched && fname.hasError('required') &&
+  fname.hasError('minlength')) {
+  <div class="alert alert-danger" role="alert">
+    This input fname is required
+  </div>
+  } @if(fname.hasError('minlength')) {
+  <div class="alert alert-danger" role="alert">Thminlengthl</div>
   }
   <input type="text" placeholder="age" formControlName="age" /><br />
-  @if( myForm.get('age').touched && myForm.get('age').hasError('required')) {
+  @if( age.touched && age.hasError('required')) {
   <div class="alert alert-danger" role="alert">This input age is required</div>
   }
 
   <input type="text" placeholder="email" formControlName="email" /><br />
-  @if( myForm.get('email').touched && myForm.get('email').hasError('required'))
-  {
+  @if( email.touched && email.hasError('required')) {
   <div class="alert alert-danger" role="alert">
     This input email is required
   </div>
-  } @if(myForm.get('email').hasError('email')) {
+  } @if(email.hasError('email')) {
   <div class="alert alert-danger" role="alert">This is not email</div>
   }
   <button type="submit" [disabled]="myForm.invalid">Print</button>
